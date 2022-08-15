@@ -1,0 +1,25 @@
+###Step 1
+
+When starting a new website you'll need to 
+create a client and server folder. 
+
+Frontend
+Since we're using react we'll want to install react
+
+npm i react
+
+this will generate your inital package.json
+
+Backend
+Lets get express ready too
+
+npm i express
+npm i nodemon
+
+Webpack
+the bane of our existence. Webpack is essential however
+
+npm init (will setup scripts for you)
+npm i webpack webpack-cli
+
+you will need a src folder, put your index.js in there
