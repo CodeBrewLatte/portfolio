@@ -9,8 +9,11 @@ import { TextField } from "@material-ui/core";
 import { Stack } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: "20px",
+  webmain: {
+    Margin: 0,
+    Padding: 0,
+    Border: 0,
+    fontFamily: "arial",
   },
 }));
 
@@ -19,11 +22,11 @@ const App = () => {
   const [loggedin, setLoggedin] = useState(false);
 
   return (
-    <>
+    <div className={classes.webmain}>
       <Nav></Nav>
       <Banner></Banner>
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 
