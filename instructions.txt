@@ -23,3 +23,5 @@ npm init (will setup scripts for you)
 npm i webpack webpack-cli
 
 you will need a src folder, put your index.js in there
+
+Remember mfrc
