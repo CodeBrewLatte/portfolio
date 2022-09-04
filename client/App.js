@@ -26,15 +26,21 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
-  const [loggedin, setLoggedin] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  const darkset = (event) => {
+    console.log(event.target.checked);
+    if (event.target.checked) setDarkMode(true);
+    else setDarkMode(false);
+    console.log("Dark mode toggled");
+  };
 
   return (
     <div className={classes.webmain}>
       <Router>
-        <Nav></Nav>
+        <Nav darkset={darkset} darkMode={darkMode}></Nav>
       </Router>
-      <Banner></Banner>
-      <Home></Home>
+      <Banner darkMode={darkMode}></Banner>
+      <Home darkMode={darkMode}></Home>
       <Footer></Footer>
     </div>
   );

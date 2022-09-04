@@ -16,6 +16,8 @@ import Box from "@mui/material/Box";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useNavigate } from "react-router-dom";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -25,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     color: "black",
+  },
+  toolbardark: {
+    display: "flex",
+    justifyContent: "space-between",
+    color: "white",
+    backgroundColor: "#222f3e",
   },
   centeralign: {
     alignItems: "center",
@@ -38,6 +46,7 @@ const Nav = (props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const navigate = useNavigate();
+  const [checked, setChecked] = useState(false);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,7 +69,11 @@ const Nav = (props) => {
         sx={{ bgcolor: "#fff" }}
         elevation={0}
       >
-        <Toolbar className={classes.toolbarstyling}>
+        <Toolbar
+          className={
+            props.darkMode ? classes.toolbardark : classes.toolbarstyling
+          }
+        >
           <h3>Steve Benner</h3>
 
           {isMobile ? (
@@ -97,9 +110,6 @@ const Nav = (props) => {
                 <MenuItem onClick={() => handleMenuClick("/contact")}>
                   Contact Me
                 </MenuItem>
-                <MenuItem onClick={() => handleMenuClick("/signup")}>
-                  Sign Up
-                </MenuItem>
               </Menu>
             </>
           ) : (
@@ -107,7 +117,13 @@ const Nav = (props) => {
               <p>About</p>
               <p>Portfolio</p>
               <p>Contact Me</p>
-              <p>Sign Up</p>
+              <p>
+                <FormControlLabel
+                  control={<Switch defaultChecked />}
+                  label="Dark Mode"
+                  onChange={props.darkset}
+                />
+              </p>
             </Stack>
           )}
         </Toolbar>
