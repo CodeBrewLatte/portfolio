@@ -21,12 +21,27 @@ const useStyles = makeStyles((theme) => ({
   center: {
     justifyContent: "center",
   },
+  darkbg: {
+    backgroundColor: "#34495e",
+  },
+  darkerbg: {
+    backgroundColor: "#95a5a6",
+    justifyContent: "center",
+    color: "white",
+  },
+  lightbg: {
+    backgroundColor: "white",
+  },
+  null: {},
 }));
-const Home = () => {
+const Home = (props) => {
   const classes = useStyles();
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box
+      sx={{ width: "100%" }}
+      className={props.darkMode ? classes.darkbg : classes.lightbg}
+    >
       <Grid
         container
         rowSpacing={1}
@@ -44,18 +59,21 @@ const Home = () => {
                 image="assets/surf.png"
                 alt="SurfQL Logo"
               />
-              <CardContent>
+              <CardContent
+                className={props.darkMode ? classes.darkerbg : classes.null}
+              >
                 <Typography gutterBottom variant="h5" component="div">
                   SurfQL
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2">
                   SurfQL is an Open Source Product that allows developers to not
                   only visualize their GraphQL schema but suggest queries using
                   intellisense.
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
+              <CardActions
+                className={props.darkMode ? classes.darkerbg : classes.null}
+              >
                 <Button size="small">Learn More</Button>
               </CardActions>
             </CardActionArea>
@@ -66,17 +84,20 @@ const Home = () => {
           <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
               <img src="assets/parqit.png" className={classes.media}></img>
-              <CardContent>
+              <CardContent
+                className={props.darkMode ? classes.darkerbg : classes.null}
+              >
                 <Typography gutterBottom variant="h5" component="div">
                   Parq-it
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2">
                   Parq-it is a web application that allows users to sign up and
                   rent or rent-out unused parking spaces.
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
+              <CardActions
+                className={props.darkMode ? classes.darkerbg : classes.null}
+              >
                 <Button size="small">Learn More</Button>
               </CardActions>
             </CardActionArea>
@@ -87,17 +108,20 @@ const Home = () => {
           <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
               <img src="assets/onlypans.png" className={classes.media}></img>
-              <CardContent>
+              <CardContent
+                className={props.darkMode ? classes.darkerbg : classes.null}
+              >
                 <Typography gutterBottom variant="h5" component="div">
                   OnlyPans
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2">
                   OnlyPans is a web application that aims to help home chefs
                   monetize themselves by selling their food to locals.
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button size="small">Share</Button>
+              <CardActions
+                className={props.darkMode ? classes.darkerbg : classes.null}
+              >
                 <Button size="small">Learn More</Button>
               </CardActions>
             </CardActionArea>
